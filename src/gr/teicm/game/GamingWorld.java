@@ -7,24 +7,21 @@ import gr.teicm.game.model.Direction;
 import gr.teicm.game.model.Exit;
 import gr.teicm.game.model.Room;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class GamingWorld {
     private PlayerState playerState;
     private Parser parser;
-    private List<Room> rooms;
 
     public GamingWorld() {
         this.playerState = PlayerState.getInstance();
         this.parser = Parser.getInstance();
-        this.rooms = new ArrayList<>();
 
-        createRooms();
+        createAndLoadRooms();
     }
 
-    public void createRooms() {
+    public void createAndLoadRooms() {
         Room yard = new Room("Yard", "You are at the house yard. It's beautiful out here although the weather is freezing cold!");
         Room livingRoom = new Room("Living Room", "You are in the living room. As you enter the house you feel the cozy warmth of the fireplace. ");
         Room kitchen = new Room("Kitchen", "The smell of fresh food indicates with closed eyes that this room is the kitchen.");
@@ -40,14 +37,6 @@ public class GamingWorld {
         office.addExits(new Exit(Direction.NORTH, bathroom), new Exit(Direction.EAST, livingRoom));
         bathroom.addExits(new Exit(Direction.EAST, bedroom), new Exit(Direction.SOUTH, office));
         garage.addExits(new Exit(Direction.NORTH, kitchen), new Exit(Direction.WEST, yard));
-
-        this.rooms.add(yard);
-        this.rooms.add(livingRoom);
-        this.rooms.add(kitchen);
-        this.rooms.add(bedroom);
-        this.rooms.add(office);
-        this.rooms.add(bathroom);
-        this.rooms.add(garage);
 
         this.playerState.setCurrentRoom(yard);
     }

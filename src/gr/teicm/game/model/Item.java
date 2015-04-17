@@ -1,21 +1,13 @@
-package gr.teicm.game;
+package gr.teicm.game.model;
 
-
-/**
-* Created by Vasilis on 27/3/2015.
-*/
 public class Item {
-
     private String itemName;
     private String itemDescription;
-    private ItemType type ;
-    private boolean takable;
+    private ItemType type;
+    private Boolean takable;
     private Room currentItemLocation;
 
-
-
-
-    public Item(String itemName, String itemDescription, ItemType type, boolean takable, Room currentItemLocation){
+    public Item(String itemName, String itemDescription, ItemType type, Boolean takable, Room currentItemLocation) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
         this.type = type;
@@ -35,14 +27,11 @@ public class Item {
         return type;
     }
 
-    public boolean isTakable() {
+    public Boolean isTakable() {
         return takable;
     }
 
     public Room getCurrentItemLocation() {
         return currentItemLocation;
     }
-
-
-
 }

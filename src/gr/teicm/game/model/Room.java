@@ -5,21 +5,23 @@ import java.util.Collections;
 import java.util.List;
 
 public class Room {
+    private String name;
     private String description;
     private List<Exit> exits;
     private List<Item> items;
 
-    public Room(String description) {
+    public Room(String name, String description) {
+        this.name = name;
+        this.description = description;
         this.exits = new ArrayList<>();
         this.items = new ArrayList<>();
-        this.description = description;
     }
 
     public List<Exit> getExits() {
         return this.exits;
     }
 
-    public void setExits(Exit... exits) {
+    public void addExits(Exit... exits) {
         Collections.addAll(this.exits, exits);
     }
 
@@ -37,6 +39,14 @@ public class Room {
 
     public List<Item> getItems() {
         return this.items;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
 

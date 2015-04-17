@@ -27,10 +27,10 @@ public class GoCommand implements ICommand {
     @Override
     public void perform() throws InvalidCommandArgumentException {
         Room currentRoom = playerState.getCurrentRoom();
-        List<Exit> exitList = currentRoom.getExits();
+        List<Exit> exits = currentRoom.getExits();
         Exit representativeExit = null;
 
-        for (Exit exit : exitList) {
+        for (Exit exit : exits) {
             if (this.argument.equalsIgnoreCase(exit.getDirection().toString())) {
                 representativeExit = exit;
             }

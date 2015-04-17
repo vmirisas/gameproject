@@ -2,8 +2,9 @@ package gr.teicm.game.model;
 
 public enum Command {
     GO("go"),
-    QUIT("quit"),
-    HELP("help");
+    STATUS("status"),
+    HELP("help"),
+    QUIT("quit");
 
     String value;
 

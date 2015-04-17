@@ -5,18 +5,16 @@ import gr.teicm.game.model.Command;
 public class HelpCommand implements ICommand {
     @Override
     public void perform() {
-        System.out.println("I think you asked for my help...");
-        System.out.println("well...");
-        System.out.println();
-        System.out.println("Your available command words are:");
-        System.out.println();
+        String string = "";
 
-        String commands = "";
+        string += "I think you asked for my help...\n";
+        string += "well...\n\n";
+        string += "Your available command words are:\n";
 
         for (Command command : Command.values()) {
-            commands += "\t" + command + "\n";
+            string += "\t" + command + "\n";
         }
 
-        System.out.println(commands);
+        System.out.println(string.trim());
     }
 }

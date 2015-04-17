@@ -1,6 +1,7 @@
 package gr.teicm.game;
 
 import gr.teicm.game.command.*;
+import gr.teicm.game.exception.InvalidCommandArgumentException;
 import gr.teicm.game.exception.InvalidCommandException;
 import gr.teicm.game.model.Command;
 
@@ -22,7 +23,7 @@ public class Parser {
         return instance;
     }
 
-    public List<ICommand> parseCommands(String input) throws InvalidCommandException {
+    public List<ICommand> parseCommands(String input) throws InvalidCommandException, InvalidCommandArgumentException {
         List<ICommand> commands = new ArrayList<>();
 
         String[] commandsSplit = input.split(" and ");
@@ -57,7 +58,7 @@ public class Parser {
                     try {
                         commands.add(new GoCommand(words.get(1)));
                     } catch (IndexOutOfBoundsException e) {
-                        throw new InvalidCommandException("No argument found");
+                        throw new InvalidCommandArgumentException("No argument found");
                     }
                 } else if (representativeCommand == Command.STATUS) {
                     commands.add(new StatusCommand());

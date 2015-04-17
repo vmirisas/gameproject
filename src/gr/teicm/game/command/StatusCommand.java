@@ -23,7 +23,7 @@ public class StatusCommand implements ICommand {
         string += "Exits: \n";
 
         for (Exit exit : currentRoom.getExits()) {
-            string += "\t" + exit.getDirection().toString() + " -> " + exit.getRoom().getName() + "\n";
+            string += "\t" + exit.getDirection().toString() + "\t->\t" + exit.getRoom().getName() + "\n";
         }
 
         System.out.println(string.trim());

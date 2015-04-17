@@ -51,9 +51,7 @@ public class Parser {
                 }
             }
 
-            if (representativeCommand == null) {
-                throw new InvalidCommandException("There is no such command: " + words.get(0));
-            } else {
+            if (representativeCommand != null) {
                 if (representativeCommand == Command.GO) {
                     try {
                         commands.add(new GoCommand(words.get(1)));
@@ -67,6 +65,8 @@ public class Parser {
                 } else if (representativeCommand == Command.QUIT) {
                     commands.add(new QuitCommand());
                 }
+            } else {
+                throw new InvalidCommandException("There is no such command: " + words.get(0));
             }
         }
 
